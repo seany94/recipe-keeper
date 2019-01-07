@@ -4,7 +4,7 @@ var DefaultLayout = require('./recipecss');
 class Recipeingredients extends React.Component{
     render(){
         return(
-            <div>
+            <div key= {this.props.list.id}>
                 <ul>
                     <form method="GET" action={"/recipe/" + this.props.list.name + "/recipelist"}>
                         -<span> </span>{this.props.list.name}<span> </span>

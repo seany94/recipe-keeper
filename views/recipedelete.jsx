@@ -1,24 +1,11 @@
 var React = require('react');
 var DefaultLayout = require('./recipecss');
-
-class Recipeingredients extends React.Component{
-    render(){
-        return(
-            <div>
-                <ul>
-                    -{this.props.list.name}<span> </span>
-                    {this.props.list.amount}<span> </span>
-                    {this.props.list.notes}<span> </span>
-                </ul>
-            </div>
-            );
-    }
-}
+var IngredientsList = require('./IngredientsList');
 
 class Recipedelete extends React.Component{
     render(){
         const recipes = this.props.ingredients.map( recipe => {
-            return <Recipeingredients list={recipe}></Recipeingredients>;
+            return <IngredientsList list={recipe}></IngredientsList>;
         });
         return(
             <DefaultLayout>
