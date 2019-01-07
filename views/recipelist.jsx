@@ -1,25 +1,12 @@
 var React = require('react');
 var DefaultLayout = require('./recipecss');
+var IngredientsList = require('./IngredientsList');
 
-class Ingredientslist extends React.Component{
-    render(){
-        return(
-            <div>
-                <ul>
-                    -{this.props.list.name}<span> </span>
-                    {this.props.list.amount}<span> </span>
-                    {this.props.list.notes}<span> </span>
-                </ul>
-                <br />
-            </div>
-            );
-    }
-}
 
 class Recipeingredients extends React.Component{
     render(){
         return(
-            <div>
+            <div key= {this.props.list.id}>
                 <ul>
                     <div className="recipetitle">
                         Recipe Title: <span> </span>
@@ -33,7 +20,7 @@ class Recipeingredients extends React.Component{
                 <br />
                 <br />
                 {this.props.list.ingredients.map( ing => {
-                    return <Ingredientslist list={ing}></Ingredientslist>;
+                    return <IngredientsList list={ing}></IngredientsList>;
                     })}
                 <br />
                 Instructions: <span> </span>
@@ -74,6 +61,5 @@ class Recipedetails extends React.Component{
     }
 }
 
-module.exports = Ingredientslist;
 module.exports = Recipeingredients;
 module.exports = Recipedetails;
